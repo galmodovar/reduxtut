@@ -15,11 +15,7 @@ export const AddPostForm = () => {
     const onSavePostClicked = () => {
         if (title && content) {
             dispatch(
-                postAdded({
-                    id: nanoid(),
-                    title,
-                    content
-                })
+                postAdded(title, content)
             )
             setTitle('')
             setContent('')
@@ -45,8 +41,8 @@ export const AddPostForm = () => {
                 value={content}
                 onChange={onContentChanged}
             />
-            <button type='button' onClick={onSavePostClicked}>Save Post</button>
         </form>
+            <button type='button' onClick={onSavePostClicked}>Save Post</button>
     </section>
   )
 }
